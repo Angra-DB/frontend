@@ -1,5 +1,5 @@
 {
-  "name": "fronted",
+  "name": "angra-db-frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
