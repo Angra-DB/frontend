@@ -2,10 +2,10 @@
   <section id="app" class="section">
     <div class="container">
       <div class="columns is-mobile">
-        <aside class="column is-one-quarter">
+        <aside class="column is-2">
                 <Menu />
         </aside>
-        <main class="column is-10 is-offset-2">
+        <main class="column is-10">
           <HomePage />
         </main>
       </div>
@@ -16,7 +16,6 @@
 
 <script>
 import Menu from './components/menu/Menu.vue'
-import MenuButton from './components/menu/MenuButton.vue'
 import HomePage from './pages/homepage/HomePage'
 
 export default {
