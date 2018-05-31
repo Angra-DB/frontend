@@ -1,26 +1,27 @@
 <template>
-  <div id="app">
-  </div>
+  <section id="app" class="section">
+    <div class="container">
+      <div class="columns is-mobile">
+        <aside class="column">
+        </aside>
+        <main class="column is-10 is-offset-2">
+          <HomePage />
+        </main>
+      </div>
+
+    </div>
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import HomePage from './pages/homepage/HomePage'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HomePage
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
