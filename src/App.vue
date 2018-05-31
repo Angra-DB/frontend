@@ -15,6 +15,7 @@
 
 <script>
 import Menu from './components/menu/Menu.vue'
+import MenuButton from './components/menu/MenuButton.vue'
 
 export default {
   name: 'app',

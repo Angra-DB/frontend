@@ -1,12 +1,20 @@
 <template>
-
+<li>
+  <a :href="url">
+    <span class="icon">
+      <i :class="icon"></i></span>
+      {{ placeholder }}
+  </a>
+</li>
 </template>
 
 <script>
 export default {
   name: 'MenuButton',
   props: {
-    msg: String
+    icon: String,
+    placeholder: String,
+    url: String
   }
 }
 </script>
