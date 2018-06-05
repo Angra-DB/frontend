@@ -1,8 +1,8 @@
-import HomePage from './pages/homepage/HomePage'
+import Databases from './pages/Databases'
 
 export default [
     { 
-      path: '/', 
-      component: HomePage 
+      path: '/db', 
+      component: Databases 
     }
   ];
