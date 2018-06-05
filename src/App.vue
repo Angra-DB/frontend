@@ -6,7 +6,7 @@
                 <Menu />
         </aside>
         <main class="column is-10">
-          <HomePage />
+          <router-view></router-view>
         </main>
       </div>
 
