@@ -3,7 +3,7 @@
     <div class="container">
       <div class="columns is-mobile">
         <aside class="column is-2">
-                <Menu />
+          <Menu />
         </aside>
         <main class="column is-10">
           <HomePage />
