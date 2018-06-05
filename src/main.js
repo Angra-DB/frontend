@@ -7,7 +7,10 @@ import App from './App.vue'
 Vue.use(VueRouter)
 Vue.config.productionTip = false
 
-const router = new VueRouter({routes})
+const router = new VueRouter({
+  mode: 'history',
+  routes: routes
+})
 
 new Vue({
   router,
