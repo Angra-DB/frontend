@@ -25,11 +25,14 @@
                 </tbody>
             </table>
         </div>
+        <DatabasesCrud />
     </section>
 </template>
 
 <script>
 import axios from 'axios'
+import DatabasesCrud from './DatabasesCrud'
+
     export default {
         data(){
             return {
@@ -40,6 +43,9 @@ import axios from 'axios'
             axios
             .get('http://localhost:4321/')
             .then(response=>(this.databases = response.data))
+        },
+        components:{
+            DatabasesCrud
         }
     }
 </script>
