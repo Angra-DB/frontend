@@ -35,12 +35,12 @@
                                         </span>
                                     </button>
                                 </span>
-                                <span @click="delete('a')" class="control">
-                                    <a class="button is-danger">
+                                <span class="control">
+                                    <button v-on:click="deleteDb(db.name)" class="button is-danger">
                                         <span class="icon is-medium">
                                             <i class="far fa-times-circle"></i>
                                         </span>
-                                    </a>
+                                    </button>
                                 </span>
                             </div>
                         </td>
@@ -65,16 +65,14 @@ import DatabasesCrud from './DatabasesCrud'
         mounted(){
         },
         methods: {
-            load: function(){
+            loadDb: function(){
                 axios
                 .get(`http://localhost:4321/`)
                 .then(response=>(this.databases = response.data))
             },
-            delete: function(db_name){
-                console.log(db_name);
+            deleteDb: function(db_name){
                 axios
                 .delete(`http://localhost:4321/db/${db_name}`)
-                .then(response=>(this.databases = response.data))
             }
         },
         components:{
