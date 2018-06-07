@@ -1,13 +1,11 @@
 import { expect } from 'chai'
 import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import Databases from '@/pages/databases/Databases.vue'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).to.include(msg)
+describe('Databases.vue', () => {
+  it('show message when any database is registered', () => {
+    const msg = "Haven't found any databases"
+    const wrapper = shallowMount(Databases)
+    expect(wrapper.find('h2').text).to.include(msg)
   })
 })

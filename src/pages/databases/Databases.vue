@@ -1,13 +1,23 @@
 <template>
-    <section class="section">
+    <section>
         <div class="container">
-            <h1 class="title">Databases</h1>
-            <button class="button is-primary">
-                <span class="icon is-medium">
-                    <i class="fas fa-database"></i>
-                </span>
-                <span>Add New Database</span>
-            </button>
+            <div class="columns header">
+                <div class="column is-8">
+                    <h1 class="title">Databases</h1>
+                </div>
+                <div class="column is-2">
+                    <button class="button is-primary">
+                        <span class="icon is-medium">
+                            <i class="fas fa-database"></i>
+                        </span>
+                        <span>Add New Database</span>
+                    </button>
+                </div>
+                <div class="column is-2">
+                    &nbsp;
+                </div>
+            </div>
+
             <h2 v-if="!databases.length">Haven't found any databases</h2>
             <table v-else class="table is-striped is-hoverable is-fullwidth">
                 <thead>
@@ -82,5 +92,8 @@ import DatabasesCrud from './DatabasesCrud'
 </script>
 
 <style scoped>
-
+.header{
+    border-bottom: 1px solid #999999;
+    box-shadow: 0px 5px 0px 0px #DDDDDD;
+}
 </style>
