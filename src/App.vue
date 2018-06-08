@@ -1,7 +1,7 @@
 <template>
-  <section id="app" class="section">
-    <div class="container">
-      <div class="columns is-mobile">
+  <section id="app">
+    <div class="">
+      <div class="columns is-gapless">
         <aside class="column is-2">
                 <Menu />
         </aside>
