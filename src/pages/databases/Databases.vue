@@ -26,7 +26,11 @@
                 </thead>
                 <tbody>
                     <tr v-for="db in databases" :key="db.id">
-                        <td><a :href="db.name">{{ db.name }}</a></td>
+                        <td>
+                            <router-link :to="{name: 'documents', params: {db_name: db.name}}">
+                                {{ db.name }}
+                            </router-link>
+                        </td>
                         <td>
                             <div class="field has-addons">
                                 <span class="control">
