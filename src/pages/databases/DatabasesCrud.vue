@@ -1,5 +1,5 @@
 <template>
-    <modal>
+    <modal v-bind:isVisible="visible" v-on:close="close">
         <section class="form-content">
             <h2 class="title is-2">Creating Database</h2>
             <form v-on:submit.prevent="submit">
@@ -35,6 +35,12 @@ import axios from 'axios'
 
     export default {
         name: 'db-crud',
+        props: {
+            visible:{
+                type: Boolean,
+                default: false
+            }
+        },
         data(){
             return {
                 form: {
@@ -44,6 +50,7 @@ import axios from 'axios'
         },
         methods: {
             close: function(){
+                this.$emit('close')
             },
             submit: function(){
                 axios.post('http://localhost:4321/db/create', this.form.name)

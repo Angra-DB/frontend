@@ -1,5 +1,5 @@
 <template>
-    <div class="modal" v-bind:class="{'is-active': isActive}">
+    <div class="modal" v-bind:class="{'is-active': isVisible}">
         <div class="modal-background"></div>
             <div class="modal-content">
                 <slot></slot>
@@ -11,17 +11,18 @@
 <script>
     export default {
         name: 'modal',
-        data(){
-            return {
-                isActive: false
+        props: {
+            isVisible:{
+                type: Boolean,
+                default: true
             }
         },
         methods: {
             close: function(){
-                this.isActive = false
+                this.$emit('close');
             },
             open: function(){
-                this.isActive = true
+                this.isVisible = true
             }
         }
     }

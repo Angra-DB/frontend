@@ -6,7 +6,7 @@
                     <h1 class="title">Databases</h1>
                 </div>
                 <div class="column is-2">
-                    <button class="button is-primary">
+                    <button @click="openModal" class="button is-primary">
                         <span class="icon is-medium">
                             <i class="fas fa-database"></i>
                         </span>
@@ -28,23 +28,9 @@
                 </thead>
                 <tbody>
                     <tr v-for="db in databases" :key="db.id">
-                        <td>{{ db.name }}</td>
+                        <td><a :href="db.name">{{ db.name }}</a></td>
                         <td>
                             <div class="field has-addons">
-                                <span class="control">
-                                    <button class="button is-primary">
-                                        <span class="icon is-medium">
-                                            <i class="fas fas fa-file-alt"></i>
-                                        </span>
-                                    </button>
-                                </span>
-                                <span class="control">
-                                    <button class="button is-info">
-                                        <span class="icon is-medium">
-                                            <i class="fas fa-edit"></i>
-                                        </span>
-                                    </button>
-                                </span>
                                 <span class="control">
                                     <button v-on:click="deleteDb(db.name)" class="button is-danger">
                                         <span class="icon is-medium">
@@ -58,7 +44,7 @@
                 </tbody>
             </table>
         </div>
-        <DatabasesCrud />
+        <DatabasesCrud v-bind:visible="modalOpen" v-on:close="closeModal"/>
     </section>
 </template>
 
@@ -69,7 +55,8 @@ import DatabasesCrud from './DatabasesCrud'
     export default {
         data(){
             return {
-                databases: [{name: 'mydatabase'}]
+                databases: [{name: 'mydatabase'}],
+                modalOpen: false
             }
         },
         mounted(){
@@ -83,6 +70,12 @@ import DatabasesCrud from './DatabasesCrud'
             deleteDb: function(db_name){
                 axios
                 .delete(`http://localhost:4321/db/${db_name}`)
+            },
+            openModal: function(){
+                this.modalOpen = true;
+            },
+            closeModal: function(){
+                this.modalOpen = false;
             }
         },
         components:{
@@ -95,5 +88,8 @@ import DatabasesCrud from './DatabasesCrud'
 .header{
     border-bottom: 1px solid #999999;
     box-shadow: 0px 5px 0px 0px #DDDDDD;
+}
+body{
+    height: 100vh;
 }
 </style>
