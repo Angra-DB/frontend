@@ -9,12 +9,12 @@
                     </a>
                 </div>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Name of database">
+                    <input class="input" v-model="form.name" type="text" placeholder="Name of database">
                 </div>
                 <div class="control">
-                    <a class="button is-primary">
+                    <button type="submit" class="button is-primary">
                         Create
-                    </a>
+                    </button>
                 </div>
             </div>
         </form>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import axios from 'axios'
     export default {
         name: 'CreateDatabase',
         data(){

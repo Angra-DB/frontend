@@ -47,10 +47,9 @@
 
 <script>
 import axios from 'axios'
-import DatabasesCrud from './DatabasesCrud'
 import CreateDatabase from './CreateDatabase'
 
-    export default {
+export default {
         data(){
             return {
                 databases: [{name: 'mydatabase'}],
