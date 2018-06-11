@@ -6,7 +6,7 @@
     <ul class="menu-list">
       <MenuButton placeholder="Databases"
                   icon="fas fa-database"
-                  url="#"/>
+                  url="db"/>
       <MenuButton placeholder="Documentation"
                   icon="fas fa-book"
                   url="#"/>
