@@ -5,16 +5,14 @@
                 <div class="column is-8">
                     <h1 class="title">Databases</h1>
                 </div>
-                <div class="column is-2">
-                    <button @click="openModal" class="button is-primary">
+                <div class="column is-4">
+                    <button v-show="!isVisibleCreate" @click="toogleCreate" class="button is-primary">
                         <span class="icon is-medium">
                             <i class="fas fa-database"></i>
                         </span>
                         <span>Add New Database</span>
                     </button>
-                </div>
-                <div class="column is-2">
-                    &nbsp;
+                    <CreateDatabase v-show="isVisibleCreate" v-on:close="toogleCreate"/>
                 </div>
             </div>
 
@@ -44,19 +42,19 @@
                 </tbody>
             </table>
         </div>
-        <DatabasesCrud v-bind:visible="modalOpen" v-on:close="closeModal"/>
     </section>
 </template>
 
 <script>
 import axios from 'axios'
 import DatabasesCrud from './DatabasesCrud'
+import CreateDatabase from './CreateDatabase'
 
     export default {
         data(){
             return {
                 databases: [{name: 'mydatabase'}],
-                modalOpen: false
+                isVisibleCreate: false
             }
         },
         mounted(){
@@ -71,15 +69,12 @@ import DatabasesCrud from './DatabasesCrud'
                 axios
                 .delete(`http://localhost:4321/db/${db_name}`)
             },
-            openModal: function(){
-                this.modalOpen = true;
-            },
-            closeModal: function(){
-                this.modalOpen = false;
+            toogleCreate: function(){
+                this.isVisibleCreate = !this.isVisibleCreate;
             }
         },
         components:{
-            DatabasesCrud
+            CreateDatabase
         }
     }
 </script>
