@@ -9,13 +9,12 @@
                     <p>id: "{{ doc.id }}"</p>
                     <div class="field has-addons">
                         <span class="control">
-                            <button @click="editDocument(id)"
-                                    class="button is-primary is-small is-rounded" 
-                                    aria-label="delete">
+                            <router-link :to="{name: 'document_edit', params:{id: doc.id}}"
+                                          class="button is-primary is-small is-rounded">
                                 <span class="icon is-small">
                                     <i class="fas fa-edit"></i>
                                 </span>
-                            </button>
+                            </router-link>
                         </span>
                         <span class="control">
                             <button @click="deleleDocument(doc.id)"
@@ -38,7 +37,6 @@
 
 <script>
 import axios from 'axios'
-
     export default {
         name: 'DocumentList',
         data(){
@@ -47,7 +45,7 @@ import axios from 'axios'
             }
         },
         methods:{
-            loadDocuments: function(dbName){
+            loadDocuments: function(){
                 const a = [
                     {id: 1, description: `"{id": "0101, "value": "3"}`},
                     {id: 2, description: 'mydoc2'},
@@ -56,12 +54,11 @@ import axios from 'axios'
                     {id: 5, description: 'mydoc5'}
                 ];
                 this.documents = a
+                //const dbName = this.$route.params.db_name
                 //axios.get(`http://localhost:4321/${dbName}`)
             },
-            editDocument: function(id){
-                axios.delete(`http://localhost:4321/${dbName}/doc/${id}`)
-            },
             deleleDocument: function(id){
+                const dbName = this.$route.params.db_name
                 axios.delete(`http://localhost:4321/${dbName}/doc/${id}`)
             }
         },

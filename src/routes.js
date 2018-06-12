@@ -1,6 +1,6 @@
 import Databases from './pages/databases/Databases'
 import Documents from './pages/documents/Documents'
-import CreateDocument from './pages/documents/CreateDocument'
+import DocumentSave from './pages/documents/DocumentSave'
 import DocumentList from './pages/documents/DocumentList'
 import HomePage from './pages/homepage/HomePage'
 import NotFoundComponent from './pages/NotFoundComponent'
@@ -21,7 +21,14 @@ export default [
           path: 'create',
           name: 'document_create',
           components: {
-            documentView: CreateDocument
+            documentView: DocumentSave
+          }
+        },
+        { 
+          path: 'edit/:id',
+          name: 'document_edit',
+          components: {
+            documentView: DocumentSave
           }
         },
       ]

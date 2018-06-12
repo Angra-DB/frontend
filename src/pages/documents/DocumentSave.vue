@@ -34,7 +34,7 @@
 import axios from 'axios'
 
     export default {
-        name: 'CreateDocument',
+        name: 'DocumentSave',
         data(){
             return {
                 form: {
@@ -45,11 +45,26 @@ import axios from 'axios'
         methods: {
             createDocument: function(){
                 const db_name = this.$route.params.db_name
-                axios.post(`http://localhost:4321/db/${db_name}/doc`, this.form.data)
+                const id = this.$route.params['id']
+                if(id){
+                    axios.put(`http://localhost:4321/db/${db_name}/update/${id}`, this.form.description)
+                }else{
+                    axios.post(`http://localhost:4321/db/${db_name}/doc`, this.form.description)
+                }
+            },
+            getDocument: function(id){
+                //axios.get(`http://localhost:4321/db/${db_name}/doc/${id}`)
+                this.form.description = id
             },
             toDocumentList: function(){
                 const db_name = this.$route.params.db_name
                 this.$router.push({ name: 'document_list', params: { db_name: db_name }})
+            }
+        },
+        beforeMount(){
+            const id = this.$route.params['id']
+            if(id){
+                this.getDocument(id)
             }
         }
     }
