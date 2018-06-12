@@ -1,27 +1,26 @@
 <template>
     <section>
         <div class="columns is-gapless">
-
-        </div>
-        <div class="columns is-gapless">
             <div class="column is-4 document-list">
                 <div class="header">
-                    <h1 class="is-title">{{ title }}</h1>
+                <router-link :to="{name: 'databases'}" 
+                             class="button is-primary">
+                    <i class="fas fa-chevron-left"></i>
+                </router-link>
+                    <h1 class="is-title">{{ tableTitle }}</h1>
                 </div>
                 <ul class="menu-list">
                     <li>
                         <h1 class="is-title">All Documents</h1>
-                        <button class="button is-primary is-rounded">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </li>
-                    <li v-for="doc in documents" v-bind:key="doc.id">
-                    {{ doc.name }}
+                        <document-operations />
                     </li>
                 </ul>                
             </div>
             <div class="column is-8">
-                No document selected
+                <div class="header">
+                    <h1 class="is-title">{{ operationTitle }}</h1>
+                </div>
+                <router-view name="documentView"></router-view>
             </div>
         </div>
     </section>
@@ -29,21 +28,18 @@
 
 <script>
 import axios from 'axios'
+import DocumentOperations from './DocumentOperations'
     export default {
-        data(){
-            return {
-                documents: [{id: 1, name: 'mydoc'},{id: 2, name: 'mydoc2'}]
-            }
-        },
-        methods:{
-            loadDocuments: function(dbName){
-                axios.get(`http://localhost:4321/${dbName}`)
-            }
-        },
         computed:{
-            title: function(){
+            tableTitle: function(){
                 return this.$route.params.db_name;
-            }
+            },
+            operationTitle: function(){
+                return `operationTitle`;
+            },
+        },
+        components: {
+            DocumentOperations
         }
     }
 </script>
@@ -52,6 +48,7 @@ import axios from 'axios'
 .header{
     border-bottom: 1px solid #999999;
     box-shadow: 0px 5px 0px 0px #DDDDDD;
+    height: 10vh;;
 }
 li{
     border-bottom: thin solid #999999;
