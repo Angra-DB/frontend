@@ -44,9 +44,10 @@ export default {
 <style scoped>
 .angra-menu{
   background-color: #00D1B2;
+  transition: width .5s ease;
 }
 
-.close{
+.angra-menu.close{
   width: 3rem;
 }
 
@@ -54,7 +55,6 @@ export default {
   width: 100%;
   height: auto;
 }
-
 @media (max-width: 768px) {
   .angra-menu{
     height: 3rem;
