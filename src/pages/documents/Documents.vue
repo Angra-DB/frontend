@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import DocumentOperations from './DocumentOperations'
     export default {
         computed:{

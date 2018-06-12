@@ -12,8 +12,6 @@
                     New Doc
                 </router-link>
             </li>
-            <li>New View</li>
-            <li>Merge indexes</li>
         </ul>
     </aside>
 </template>
