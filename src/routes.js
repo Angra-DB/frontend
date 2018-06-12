@@ -8,7 +8,6 @@ import NotFoundComponent from './pages/NotFoundComponent'
 export default [
     { 
       path: '/db/:db_name',
-      name: 'documents',
       component: Documents,
       children: [
         { 
