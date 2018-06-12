@@ -2,6 +2,7 @@ import Databases from './pages/databases/Databases'
 import Documents from './pages/documents/Documents'
 import DocumentSave from './pages/documents/DocumentSave'
 import DocumentList from './pages/documents/DocumentList'
+import Documentation from './pages/documentation/Documentation'
 import HomePage from './pages/homepage/HomePage'
 import NotFoundComponent from './pages/NotFoundComponent'
 
@@ -37,6 +38,11 @@ export default [
       path: '/db',
       name: 'databases', 
       component: Databases
+    },
+    { 
+      path: '/documentation', 
+      name: 'documentation',
+      component: Documentation 
     },
     { 
       path: '/', 
