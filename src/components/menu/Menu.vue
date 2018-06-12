@@ -9,7 +9,7 @@
                   url="db"/>
       <MenuButton placeholder="Documentation"
                   icon="fas fa-book"
-                  url="#"/>
+                  url="documentation"/>
       <MenuButton placeholder="Configuration"
                   icon="fas fa-toolbox"
                   url="#"/>
