@@ -1,11 +1,11 @@
 <template>
-    <section>
+    <section class="section">
         <div class="container">
             <div class="columns header">
-                <div class="column is-8">
+                <div class="column is-7">
                     <h1 class="title">Databases</h1>
                 </div>
-                <div class="column is-4">
+                <div class="column is-5">
                     <button v-show="!isVisibleCreate" @click="toogleCreate" class="button is-primary">
                         <span class="icon is-medium">
                             <i class="fas fa-database"></i>

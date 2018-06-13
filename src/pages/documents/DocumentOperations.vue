@@ -21,7 +21,7 @@
         name: 'DocumentOperations',
         data(){
             return {
-                showList: true
+                showList: false
             }
         },
         methods: {

@@ -2,15 +2,17 @@
     <section>
         <div class="columns is-gapless">
             <div class="column is-4 document-list">
-                <div class="header">
+                <div class="header is-flex">
                 <router-link :to="{name: 'databases'}" 
-                             class="button is-primary">
-                    <i class="fas fa-chevron-left"></i>
+                             class="button is-light is-medium">
+                    <span class="icon is-large">
+                        <i class="fas fa-lg fa-chevron-left"></i>
+                    </span>
                 </router-link>
                     <h1 class="is-title">{{ tableTitle }}</h1>
                 </div>
                 <ul class="menu-list">
-                    <li>
+                    <li class="is-flex">
                         <h1 class="is-title">All Documents</h1>
                         <document-operations />
                     </li>
@@ -47,14 +49,18 @@ import DocumentOperations from './DocumentOperations'
 .header{
     border-bottom: 1px solid #999999;
     box-shadow: 0px 5px 0px 0px #DDDDDD;
-    height: 10vh;;
+    height: 3rem;
+    align-items: center;
 }
 li{
     border-bottom: thin solid #999999;
     padding: 0.5rem 0rem;
 }
+li.is-flex{
+    justify-content: space-evenly;
+}
 .document-list{
     border-right: thin solid #999999;
-    height: 100%;
+    height: 100vh;
 }
 </style>
