@@ -33,5 +33,15 @@
 </script>
 
 <style scoped>
-
+aside{
+    position: relative;
+    top: 0%;
+    left: 0%;
+}
+ul.menu-list{
+    position: absolute;
+    top: 5vh;
+    left: -10vh;
+    width: 20vh;
+}
 </style>
