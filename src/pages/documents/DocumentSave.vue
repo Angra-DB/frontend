@@ -71,4 +71,7 @@ import axios from 'axios'
 </script>
 
 <style scoped>
+aside{
+    padding-top: 3vh;
+}
 </style>

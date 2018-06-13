@@ -71,6 +71,7 @@ import axios from 'axios'
 <style scoped>
 section{
     overflow-y: scroll;
-    max-height: 75vh;
+    max-height: 92vh;
+    padding: 5vh;
 }
 </style>

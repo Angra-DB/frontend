@@ -9,7 +9,7 @@
                         <i class="fas fa-lg fa-chevron-left"></i>
                     </span>
                 </router-link>
-                    <h1 class="is-title">{{ tableTitle }}</h1>
+                    <h1 class="title is-4">{{ tableTitle }}</h1>
                 </div>
                 <ul class="menu-list">
                     <li class="is-flex">
@@ -19,8 +19,8 @@
                 </ul>                
             </div>
             <div class="column is-8">
-                <div class="header">
-                    <h1 class="is-title">{{ operationTitle }}</h1>
+                <div class="header is-flex">
+                    <h1 class="title is-4">{{ operationTitle }}</h1>
                 </div>
                 <router-view name="documentView"></router-view>
             </div>
