@@ -1,21 +1,26 @@
 <template>
     <section class="section">
-        <div class="container">
-            <div class="columns header">
-                <div class="column is-7">
-                    <h1 class="title">Databases</h1>
+            <div class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <h1 class="title">Databases</h1>
+                    </div>
                 </div>
-                <div class="column is-5">
-                    <button v-show="!isVisibleCreate" @click="toogleCreate" class="button is-primary">
+                <div class="level-right">
+                    <div class="level-item">
+                    <button v-show="!isVisibleCreate" 
+                            @click="toogleCreate" 
+                            class="button is-primary">
                         <span class="icon is-medium">
                             <i class="fas fa-database"></i>
                         </span>
                         <span>Add New Database</span>
                     </button>
-                    <CreateDatabase v-show="isVisibleCreate" v-on:close="toogleCreate"/>
+                    <CreateDatabase v-show="isVisibleCreate" 
+                                    v-on:close="toogleCreate"/>
+                    </div>
                 </div>
             </div>
-
             <h2 v-if="!databases.length">Haven't found any databases</h2>
             <table v-else class="table is-striped is-hoverable is-fullwidth">
                 <thead>
@@ -25,7 +30,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="db in databases" :key="db.id">
+                    <tr v-for="db in databases" 
+                        :key="db.id">
                         <td>
                             <router-link :to="{name: 'document_list', params: {db_name: db.name}}">
                                 {{ db.name }}
@@ -45,7 +51,6 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
     </section>
 </template>
 
@@ -83,10 +88,6 @@ export default {
 </script>
 
 <style scoped>
-.header{
-    border-bottom: 1px solid #999999;
-    box-shadow: 0px 5px 0px 0px #DDDDDD;
-}
 body{
     height: 100vh;
 }
