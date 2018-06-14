@@ -8,30 +8,26 @@ import NotFoundComponent from './pages/NotFoundComponent'
 
 export default [
     { 
+      path: '/db/:db_name/create',
+      name: 'document_create',
+      component: DocumentSave
+    },
+    { 
+      path: 'edit/:id',
+      name: 'document_edit',
+      component: DocumentSave
+    },
+    { 
       path: '/db/:db_name',
       component: Documents,
-      children: [
+      children: [  
         { 
           path: '',
           name: 'document_list',
           components: {
             documentView: DocumentList
           }
-        },
-        { 
-          path: 'create',
-          name: 'document_create',
-          components: {
-            documentView: DocumentSave
-          }
-        },
-        { 
-          path: 'edit/:id',
-          name: 'document_edit',
-          components: {
-            documentView: DocumentSave
-          }
-        },
+        }
       ]
     },
     { 

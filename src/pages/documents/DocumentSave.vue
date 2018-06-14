@@ -1,31 +1,27 @@
 <template>
-    <section class="columns">
+    <section class="section">
         <form @submit.prevent="createDocument">
-            <aside class="column is-12">
-                <div class="field has-addons">
-                    <span class="control">
-                        <button class="button is-primary" type="submit">
-                            <span class="icon is-small">
-                                <i class="fas fas-create"></i>
-                            </span>
-                            <span>Create Document</span>
-                        </button>
-                    </span>
-                    <span class="control">
-                        <button @click="toDocumentList" 
-                                class="button is-danger is-outlined" 
-                                type="reset">
-                            <span class="icon is-small">
-                                <i class="fas fas-create"></i>
-                            </span>
-                            <span>Cancel</span>
-                        </button>
-                    </span>
-                </div>
-            </aside>
-            <article class="column is-12">
-                <textarea v-model="form.description"></textarea>
-            </article>
+            <div class="field has-addons">
+                <span class="control">
+                    <button class="button is-primary" type="submit">
+                        <span class="icon is-small">
+                            <i class="fas fas-create"></i>
+                        </span>
+                        <span>Create Document</span>
+                    </button>
+                </span>
+                <span class="control">
+                    <button @click="toDocumentList" 
+                            class="button is-danger is-outlined" 
+                            type="reset">
+                        <span class="icon is-small">
+                            <i class="fas fas-create"></i>
+                        </span>
+                        <span>Cancel</span>
+                    </button>
+                </span>
+            </div>
+            <textarea v-model="form.description"></textarea>
         </form>
     </section>
 </template>
