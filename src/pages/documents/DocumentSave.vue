@@ -38,7 +38,7 @@ import ModelEditor from '../../components/editor/ModelEditor'
         data(){
             return {
                 form: {
-                    description: '{"id": "1"}'
+                    description: ''
                 }
             }
         },
@@ -74,7 +74,4 @@ import ModelEditor from '../../components/editor/ModelEditor'
 </script>
 
 <style scoped>
-aside{
-    padding-top: 3vh;
-}
 </style>

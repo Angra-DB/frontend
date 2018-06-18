@@ -1,9 +1,10 @@
 <template>
     <aside>
         <!--
-        <div v-highlight>
+        <div id="" v-highlight>
             <pre>
                 <code class="you can specify the language here">
+                    {{ value }}
                 </code>
             </pre>        
         </div>
