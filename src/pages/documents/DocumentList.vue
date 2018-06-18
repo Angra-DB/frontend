@@ -13,9 +13,9 @@
                         <div class="field has-addons">
                             <span class="control">
                                 <router-link :to="{
-                                                    name: 'document_edit', 
-                                                    params:{id: doc.id}
-                                                }"
+                                                name: 'document_edit', 
+                                                params:{id: doc.id}
+                                              }"
                                             class="button is-primary is-small is-rounded">
                                     <span class="icon is-small">
                                         <i class="fas fa-edit"></i>
@@ -34,7 +34,13 @@
                         </div>
                     </div>
                     <div class="message-body has-text-danger">
-                        {{ doc.description }}
+                        <div v-highlight>
+                            <pre>
+                                <code class="json">
+                                    {{ doc.description }}
+                                </code>
+                            </pre>        
+                        </div>
                     </div>
                 </article>
             </section>
