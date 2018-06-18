@@ -33,7 +33,10 @@
                     <tr v-for="db in databases" 
                         :key="db.id">
                         <td>
-                            <router-link :to="{name: 'documents', params: {db_name: db.name}}">
+                            <router-link :to="{
+                                name: 'documents', 
+                                params: {db_name: db.name}
+                                }">
                                 {{ db.name }}
                             </router-link>
                         </td>
