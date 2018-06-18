@@ -37,9 +37,6 @@
                 </ul>                
             </div>
             <div class="column is-8">
-                <div class="header is-flex">
-                    <h1 class="title is-4">{{ operationTitle }}</h1>
-                </div>
                 <router-view name="documentView"></router-view>
             </div>
         </div>
@@ -52,10 +49,7 @@ import DocumentOperations from './DocumentOperations'
         computed:{
             tableTitle: function(){
                 return this.$route.params.db_name;
-            },
-            operationTitle: function(){
-                return `operationTitle`;
-            },
+            }
         },
         components: {
             DocumentOperations
@@ -64,9 +58,12 @@ import DocumentOperations from './DocumentOperations'
 </script>
 
 <style scoped>
+h1{
+    padding-right: 1rem;
+}
 li{
     border-bottom: thin solid #999999;
-    padding: 0.5rem 0rem;
+    padding: 0.5rem 1rem;
 }
 .document-list{
     border-right: thin solid #999999;

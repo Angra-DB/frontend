@@ -41,7 +41,7 @@ aside{
 ul.menu-list{
     position: absolute;
     top: 5vh;
-    left: -10vh;
+    left: -15vh;
     width: 20vh;
 }
 </style>

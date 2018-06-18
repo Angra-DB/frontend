@@ -1,38 +1,45 @@
 <template>
-    <section>
+    <div>
         <template v-if="!documents.length">
             <p>No document selected</p>    
         </template>
         <template v-else>
-            <article v-for="doc in documents" v-bind:key="doc.id" class="message">
-                <div class="message-header">
-                    <p>id: "{{ doc.id }}"</p>
-                    <div class="field has-addons">
-                        <span class="control">
-                            <router-link :to="{name: 'document_edit', params:{id: doc.id}}"
-                                          class="button is-primary is-small is-rounded">
-                                <span class="icon is-small">
-                                    <i class="fas fa-edit"></i>
-                                </span>
-                            </router-link>
-                        </span>
-                        <span class="control">
-                            <button @click="deleleDocument(doc.id)"
-                                    class="button is-danger is-small is-rounded" 
-                                    aria-label="delete">
-                                <span class="icon is-small">
-                                    <i class="fas fa-times"></i>
-                                </span>
-                            </button>
-                        </span>
+            <section>
+                <article v-for="doc in documents" 
+                        v-bind:key="doc.id" 
+                        class="message">
+                    <div class="message-header">
+                        <p>id: "{{ doc.id }}"</p>
+                        <div class="field has-addons">
+                            <span class="control">
+                                <router-link :to="{
+                                                    name: 'document_edit', 
+                                                    params:{id: doc.id}
+                                                }"
+                                            class="button is-primary is-small is-rounded">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-edit"></i>
+                                    </span>
+                                </router-link>
+                            </span>
+                            <span class="control">
+                                <button @click="deleleDocument(doc.id)"
+                                        class="button is-danger is-small is-rounded" 
+                                        aria-label="delete">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-times"></i>
+                                    </span>
+                                </button>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="message-body has-text-danger">
-                    {{ doc.description }}
-                </div>
-            </article>
+                    <div class="message-body has-text-danger">
+                        {{ doc.description }}
+                    </div>
+                </article>
+            </section>
         </template>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -43,6 +50,9 @@ import axios from 'axios'
             return {
                 documents: []
             }
+        },
+        beforeMount(){
+            this.loadDocuments()
         },
         methods:{
             loadDocuments: function(){
@@ -60,10 +70,12 @@ import axios from 'axios'
             deleleDocument: function(id){
                 const dbName = this.$route.params.db_name
                 axios.delete(`http://localhost:4321/${dbName}/doc/${id}`)
-            }
+            },
         },
-        beforeMount(){
-            this.loadDocuments()
+        computed:{
+            operationTitle: function(){
+                return `operationTitle`;
+            }
         }
     }
 </script>
