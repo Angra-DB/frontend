@@ -10,7 +10,7 @@ const router = new VueRouter()
 describe('Databases.vue', () => {
   it('show message when none database is registered', () => {
     const msg = "Haven't found any databases"
-    const data = () => { return {databases: [],isVisibleCreate: false}}
+    const data = () => { return {databases: [], isVisibleCreate: false}}
     const wrapper = shallowMount(Databases, {
       localVue,
       router,

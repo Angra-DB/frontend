@@ -8,16 +8,7 @@
                 </div>
                 <div class="level-right">
                     <div class="level-item">
-                    <button v-show="!isVisibleCreate" 
-                            @click="toogleCreate" 
-                            class="button is-primary">
-                        <span class="icon is-medium">
-                            <i class="fas fa-database"></i>
-                        </span>
-                        <span>Add New Database</span>
-                    </button>
-                    <CreateDatabase v-show="isVisibleCreate" 
-                                    v-on:close="toogleCreate"/>
+                        <CreateDatabase />
                     </div>
                 </div>
             </div>
@@ -28,7 +19,7 @@
                         <th>Name</th>
                         <th>Actions</th>
                     </tr>
-                </thead>
+                </thead> 
                 <tbody>
                     <tr v-for="db in databases" 
                         :key="db.id">
@@ -79,9 +70,6 @@ export default {
             deleteDb: function(db_name){
                 axios
                 .delete(`http://localhost:4321/db/${db_name}`)
-            },
-            toogleCreate: function(){
-                this.isVisibleCreate = !this.isVisibleCreate;
             }
         },
         components:{
