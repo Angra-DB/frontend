@@ -1,5 +1,8 @@
 <template>
     <section class="section">
+        <header class="title">
+            Document Create
+        </header>
         <form @submit.prevent="createDocument">
             <div class="field has-addons">
                 <span class="control">
@@ -21,20 +24,21 @@
                     </button>
                 </span>
             </div>
-            <textarea v-model="form.description"></textarea>
+            <model-editor v-model="form.description"></model-editor>
         </form>
     </section>
 </template>
 
 <script>
 import axios from 'axios'
+import ModelEditor from '../../components/editor/ModelEditor'
 
     export default {
         name: 'DocumentSave',
         data(){
             return {
                 form: {
-                    description: ''
+                    description: '{"id": "1"}'
                 }
             }
         },
@@ -62,6 +66,9 @@ import axios from 'axios'
             if(id){
                 this.getDocument(id)
             }
+        },
+        components: {
+            ModelEditor
         }
     }
 </script>
