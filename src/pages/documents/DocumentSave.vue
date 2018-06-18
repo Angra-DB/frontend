@@ -1,7 +1,7 @@
 <template>
     <section class="section">
         <header class="title">
-            Document Create
+            {{ title }}
         </header>
         <form @submit.prevent="createDocument">
             <div class="field has-addons">
@@ -38,8 +38,16 @@ import ModelEditor from '../../components/editor/ModelEditor'
         data(){
             return {
                 form: {
+                    id: null,
                     description: ''
                 }
+            }
+        },
+        beforeMount(){
+            const id = this.$route.params['id']
+            if(id){
+                this.getDocument(id)
+                this.form.id = id
             }
         },
         methods: {
@@ -54,17 +62,16 @@ import ModelEditor from '../../components/editor/ModelEditor'
             },
             getDocument: function(id){
                 //axios.get(`http://localhost:4321/db/${db_name}/doc/${id}`)
-                this.form.description = id
+                this.form.description = id.toString()
             },
             toDocumentList: function(){
                 const db_name = this.$route.params.db_name
                 this.$router.push({ name: 'documents', params: { db_name: db_name }})
             }
         },
-        beforeMount(){
-            const id = this.$route.params['id']
-            if(id){
-                this.getDocument(id)
+        computed: {
+            title: function(){
+                return this.form.id ? 'Document Edit': 'Document Create';
             }
         },
         components: {
