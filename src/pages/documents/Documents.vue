@@ -37,7 +37,7 @@
                 </ul>                
             </div>
             <div class="column is-8">
-                <router-view name="documentView"></router-view>
+                <DocumentList />
             </div>
         </div>
     </section>
@@ -45,6 +45,7 @@
 
 <script>
 import DocumentOperations from './DocumentOperations'
+import DocumentList from './DocumentList'
     export default {
         computed:{
             tableTitle: function(){
@@ -52,7 +53,8 @@ import DocumentOperations from './DocumentOperations'
             }
         },
         components: {
-            DocumentOperations
+            DocumentOperations,
+            DocumentList
         }
     }
 </script>

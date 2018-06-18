@@ -58,7 +58,7 @@ import ModelEditor from '../../components/editor/ModelEditor'
             },
             toDocumentList: function(){
                 const db_name = this.$route.params.db_name
-                this.$router.push({ name: 'document_list', params: { db_name: db_name }})
+                this.$router.push({ name: 'documents', params: { db_name: db_name }})
             }
         },
         beforeMount(){
