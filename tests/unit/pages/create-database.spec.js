@@ -8,11 +8,34 @@ describe('CreateDatabase.vue', () => {
     const el = wrapper.find('button')
     expect(el.contains('button'))
   })
-  it('when click the button, should show a input', () => {
+  it('when click the button, should show an input', () => {
     const wrapper = shallowMount(CreateDatabase)
-    const button = wrapper.find('button')
-    button.trigger('toogleCreate')
+    wrapper.find('button').trigger('click')
     const el = wrapper.find('input')
-    expect(el.contains('input'))
+    expect(el.contains('input')).to.be.true
+  })
+  it('when click close button, should close an input', () => {
+    const wrapper = shallowMount(CreateDatabase, {
+      data () {
+        return {
+          form: {
+            name: ''
+          },
+          isVisibleCreate: true
+        }
+      }
+    })
+    const button = wrapper.find('a')
+    button.trigger('click')
+    expect(wrapper.contains('input')).to.be.false
   })
 })
+
+function show (text) {
+  console.log(`
+  -----------------------------------------------------------
+  -  console:
+  -    ${text}
+  -----------------------------------------------------------
+  `)
+}
