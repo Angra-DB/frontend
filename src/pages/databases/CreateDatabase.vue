@@ -49,11 +49,24 @@ import axios from 'axios'
                 this.isVisibleCreate = !this.isVisibleCreate;
             },
             submit: function(){
-                axios.post('http://localhost:4321/db/create', this.form.name)
+                axios.post('http://localhost:4321/db/create', this.form.name).then(
+                    (success) => {
+                        
+                    },
+                    (fail) => {
+                        
+                    }
+                )
             }
         }
     }
 </script>
 
 <style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>

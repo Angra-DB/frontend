@@ -46,6 +46,7 @@
                 </tbody>
             </table>
     </section>
+    
 </template>
 
 <script>
@@ -55,17 +56,27 @@ import CreateDatabase from './CreateDatabase'
 export default {
         data(){
             return {
-                databases: [{name: 'mydatabase'}],
+                databases: [],
                 isVisibleCreate: false
             }
         },
-        mounted(){
+        beforeMount(){
+            this.loadDb()
         },
         methods: {
             loadDb: function(){
                 axios
                 .get(`http://localhost:4321/`)
-                .then(response=>(this.databases = response.data))
+                .then(
+                    (response)=>{this.databases = response.data},
+                    (fail) => {
+                        this.$notify({
+                            group: 'warning',
+                            title: 'Error on loading',
+                            text: 'Possible error on network communication with database'
+                        })
+                    }
+                )
             },
             deleteDb: function(db_name){
                 axios
